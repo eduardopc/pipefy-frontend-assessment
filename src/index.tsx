@@ -1,26 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_PIPEFY_API_URL || '',
-  cache: new InMemoryCache(),
-  headers: {
-    authorization: `Bearer ${process.env.REACT_APP_PIPEFY_API_TOKEN || ''}`,
-  },
-  credentials: 'same-origin',
-});
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
