@@ -11,6 +11,7 @@ export const Content = styled.section`
     width: 100%;
     margin: 1rem auto;
     max-height: ${theme.font.sizes.xlarge};
+    color: ${theme.colors.black};
     align-self: flex-start;
     display: flex;
     flex-direction: column;

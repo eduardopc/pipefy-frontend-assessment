@@ -28,7 +28,7 @@ const usePipes = ({ organizationId }: IQueryPipes) => {
     onCompleted: (data) => {
       const sortedPipes =
         data.organization?.pipes &&
-        data.organization!.pipes!.sort((pipeA, pipeB) =>
+        data.organization.pipes!.sort((pipeA, pipeB) =>
           pipeA!.name.trim().localeCompare(pipeB!.name.trim())
         );
 

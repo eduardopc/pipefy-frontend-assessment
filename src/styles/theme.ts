@@ -25,14 +25,15 @@ export default {
   colors: {
     primary: "#F231A5",
     secondary: "#3CD3C1",
-    mainBg: "#06092B",
+    mainBg: "#FFFFFF",
     lightBg: "#F2F2F2",
     white: "#FAFAFA",
     black: "#030517",
-    lightGray: "#EAEAEA",
+    lightGray: "rgba(46,47,66,0.7)",
     gray: "#8F8F8F",
     darkGray: "#2E2F42",
     red: "#FF6347",
+    yellow: "#FFC72C",
   },
   spacings: {
     xxsmall: "0.8rem",
@@ -49,9 +50,5 @@ export default {
     overlay: 30,
     modal: 40,
     alwaysOnTop: 50,
-  },
-  transition: {
-    default: "0.3s ease-in-out",
-    fast: "0.1s ease-in-out",
   },
 } as const;

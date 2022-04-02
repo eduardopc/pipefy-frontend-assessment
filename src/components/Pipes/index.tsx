@@ -3,6 +3,10 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import usePipes from "./hooks/usePipes";
 
+import { Cards } from "../Cards";
+
+import * as S from "./styles";
+
 export interface IPipe {
   cards_count: number;
   color: string;
@@ -30,7 +34,7 @@ export const Pipes = () => {
       )}
       {loading ? (
         <Skeleton
-          count={12}
+          count={24}
           wrapper={InlineWrapperWithMargin}
           inline
           style={{
@@ -40,7 +44,13 @@ export const Pipes = () => {
           }}
         />
       ) : (
-        JSON.stringify(data)
+        <section>
+          <S.Grid>
+            {data?.map((item) => (
+              <Cards key={item?.id} item={item} />
+            ))}
+          </S.Grid>
+        </section>
       )}
     </div>
   );
