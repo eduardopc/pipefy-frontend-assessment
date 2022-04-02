@@ -21,7 +21,6 @@ function createApolloClient() {
 export function initializeApollo(initialState = {}) {
   const apolloClientGlobal = apolloClient ?? createApolloClient();
 
-  // recuperando os dados do cache
   if (initialState) {
     apolloClientGlobal.cache.restore(initialState);
   }
