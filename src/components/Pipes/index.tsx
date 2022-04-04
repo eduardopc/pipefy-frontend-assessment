@@ -3,7 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import usePipes from "./hooks/usePipes";
 
-import { Cards } from "../Cards";
+import { PipesList } from "../PipesList";
 
 import * as S from "./styles";
 import { CardsModal } from "../CardsModal";
@@ -69,7 +69,7 @@ export const Pipes = () => {
             <section>
               <S.Grid>
                 {data?.map((item) => (
-                  <Cards
+                  <PipesList
                     key={item?.id}
                     item={item}
                     selectPipe={handleClickPipe}

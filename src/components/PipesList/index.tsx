@@ -10,7 +10,7 @@ export type CardsProps = {
   selectPipe: (_: string) => void;
 };
 
-export const Cards = ({ item, selectPipe }: CardsProps) => {
+export const PipesList = ({ item, selectPipe }: CardsProps) => {
   return (
     <S.Wrapper
       color={item!.color!}

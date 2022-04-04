@@ -4,7 +4,7 @@ export const ModalBg = styled.div`
   ${({ theme }) => css`
     width: 100%;
     max-width: ${theme.grid.container};
-    margin-top: 100px;
+    margin-top: 50px;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -14,8 +14,8 @@ export const ModalBg = styled.div`
 
 export const ModalContainer = styled.div`
   ${({ theme }) => css`
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     border-radius: ${theme.border.radius};
     background-color: ${theme.colors.white};
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -55,16 +55,22 @@ export const Footer = styled.div`
   align-items: flex-end;
 `;
 
-export const FooterButton = styled.button`
-  ${({ theme }) => css`
+type TFooterButton = {
+  buttonEnabled: boolean | undefined;
+};
+
+export const FooterButton = styled.button<TFooterButton>`
+  ${({ theme, buttonEnabled }) => css`
     width: 150px;
     height: 45px;
     margin: 10px;
     border: none;
-    background-color: ${theme.colors.gray};
+    background-color: ${buttonEnabled
+      ? theme.colors.primary
+      : theme.colors.gray};
     color: ${theme.colors.white};
     border-radius: ${theme.border.radius};
     font-size: ${theme.font.sizes.large};
-    cursor: pointer;
+    cursor: ${buttonEnabled ? "pointer" : "not-allowed"};
   `}
 `;

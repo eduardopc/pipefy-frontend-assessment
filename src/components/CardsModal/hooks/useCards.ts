@@ -13,7 +13,7 @@ export interface IQueryCards {
 }
 
 const useCards = ({ pipeId, first = 3, after = null }: IQueryCards) => {
-  const { data, error, loading } = useQuery<
+  const { data, error, loading, fetchMore } = useQuery<
     GetCardsByPipe,
     GetCardsByPipeVariables
   >(GET_CARDS_BY_PIPE, {
@@ -29,6 +29,7 @@ const useCards = ({ pipeId, first = 3, after = null }: IQueryCards) => {
     error,
     data,
     loading,
+    fetchMore,
   };
 };
 

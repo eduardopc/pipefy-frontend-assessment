@@ -11,7 +11,7 @@ type TCardsModal = {
 };
 
 export const CardsModal = ({ closeModal, pipeId }: TCardsModal) => {
-  const { data, error, loading } = useCards({
+  const { data, error, loading, fetchMore } = useCards({
     pipeId: pipeId || "",
   });
 
@@ -24,10 +24,33 @@ export const CardsModal = ({ closeModal, pipeId }: TCardsModal) => {
           </S.CloseButtonContainer>
           <S.Body>
             {loading && <Loading withTitle />}
-            {!loading && data && JSON.stringify(data)}
+            {!loading && data && (
+              <>
+                {data.cards?.edges?.map((card) => {
+                  return (
+                    <>
+                      <p>{card?.node?.title} / </p>
+                    </>
+                  );
+                })}
+              </>
+            )}
           </S.Body>
           <S.Footer>
-            <S.FooterButton>Continue</S.FooterButton>
+            <S.FooterButton
+              buttonEnabled={data?.cards?.pageInfo.hasNextPage}
+              onClick={async () =>
+                await fetchMore({
+                  variables: {
+                    after: data?.cards?.pageInfo.endCursor,
+                  },
+                })
+              }
+            >
+              {data?.cards?.pageInfo.hasNextPage
+                ? "Load more cards"
+                : "No more cards"}
+            </S.FooterButton>
           </S.Footer>
         </S.ModalContainer>
       </S.ModalBg>
