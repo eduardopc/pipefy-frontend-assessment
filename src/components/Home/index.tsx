@@ -10,16 +10,6 @@ export const Home = () => {
       <Container>
         <Pipes />
       </Container>
-
-      {/* {test && <ComponentSkeleton />} */}
-      {/* <button onClick={() => setTest(true)}>Abre modal</button>
-      {test && (
-        <S.ModalContainer>
-          <S.Modal>
-            <button onClick={() => setTest(false)}>Fecha modal</button>
-          </S.Modal>
-        </S.ModalContainer>
-      )} */}
     </Base>
   );
 };

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useCallback, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import usePipes from "./hooks/usePipes";
@@ -6,6 +6,7 @@ import usePipes from "./hooks/usePipes";
 import { Cards } from "../Cards";
 
 import * as S from "./styles";
+import { CardsModal } from "../CardsModal";
 
 export interface IPipe {
   cards_count: number;
@@ -16,9 +17,24 @@ export interface IPipe {
 }
 
 export const Pipes = () => {
+  const [pipeId, setPipeId] = useState<string | null>(null);
+  const [openModal, setOpenModal] = useState(false);
+
   const { data, error, loading } = usePipes({
     organizationId: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID || "",
   });
+
+  const handleClickPipe = useCallback(
+    (pipe: string) => {
+      setPipeId(pipe);
+      setOpenModal(true);
+    },
+    [setPipeId, setOpenModal]
+  );
+
+  const handleCloseModal = useCallback(() => {
+    setOpenModal(false);
+  }, [setOpenModal]);
 
   function InlineWrapperWithMargin({ children }: PropsWithChildren<unknown>) {
     return <span style={{ marginRight: "1rem" }}>{children}</span>;
@@ -26,31 +42,43 @@ export const Pipes = () => {
 
   return (
     <div>
-      {error && (
-        <p>
-          {JSON.stringify(error.message) ||
-            "Check if was set up properly the env REACT_APP_PIPEFY_ORGANIZATION_ID"}
-        </p>
-      )}
-      {loading ? (
-        <Skeleton
-          count={24}
-          wrapper={InlineWrapperWithMargin}
-          inline
-          style={{
-            width: 200,
-            height: 200,
-            borderRadius: 20,
-          }}
-        />
+      {openModal ? (
+        <CardsModal closeModal={handleCloseModal} pipeId={pipeId} />
       ) : (
-        <section>
-          <S.Grid>
-            {data?.map((item) => (
-              <Cards key={item?.id} item={item} />
-            ))}
-          </S.Grid>
-        </section>
+        <>
+          {error && (
+            <p>
+              {`Check if was set up properly the env REACT_APP_PIPEFY_ORGANIZATION_ID - GraphQL error: ${JSON.stringify(
+                error.message
+              )}`}
+            </p>
+          )}
+          {loading ? (
+            <Skeleton
+              count={24}
+              wrapper={InlineWrapperWithMargin}
+              inline
+              style={{
+                width: 270,
+                height: 185,
+                borderRadius: 8,
+                marginTop: 20,
+              }}
+            />
+          ) : (
+            <section>
+              <S.Grid>
+                {data?.map((item) => (
+                  <Cards
+                    key={item?.id}
+                    item={item}
+                    selectPipe={handleClickPipe}
+                  />
+                ))}
+              </S.Grid>
+            </section>
+          )}
+        </>
       )}
     </div>
   );

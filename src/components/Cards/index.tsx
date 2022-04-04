@@ -7,11 +7,15 @@ import * as S from "./styles";
 
 export type CardsProps = {
   item?: (GetPipesByOrganization_organization_pipes | null) | null;
+  selectPipe: (_: string) => void;
 };
 
-export const Cards = ({ item }: CardsProps) => {
+export const Cards = ({ item, selectPipe }: CardsProps) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper
+      color={item!.color!}
+      onClick={() => (!!item?.cards_count ? selectPipe(item?.id) : null)}
+    >
       <S.HeaderContent>
         <S.LockButton role="button">
           {item?.cards_count && item.cards_count % 2 ? (
@@ -26,8 +30,13 @@ export const Cards = ({ item }: CardsProps) => {
           )}
         </S.StarButton>
       </S.HeaderContent>
-      <S.Info>
-        <Book size={60} style={{ marginBottom: 10 }} color="#36F1CD" />
+
+      <S.Info hasCards={!!item?.cards_count}>
+        <Book
+          size={60}
+          style={{ marginBottom: 10, alignSelf: "center" }}
+          color="#030517"
+        />
         <S.Name>{item?.name}</S.Name>
         <S.Count>{item?.cards_count} cards</S.Count>
       </S.Info>
