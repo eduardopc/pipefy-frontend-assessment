@@ -7,19 +7,6 @@ export const GET_CARDS_BY_PIPE = gql`
         node {
           id
           title
-          createdAt
-          createdBy {
-            displayName
-            username
-          }
-          labels {
-            color
-            name
-          }
-          summary {
-            title
-            value
-          }
           url
         }
       }

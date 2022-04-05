@@ -5,12 +5,12 @@ import { GetPipesByOrganization_organization_pipes } from "../Pipes/__generated_
 
 import * as S from "./styles";
 
-export type CardsProps = {
+export type PipesProps = {
   item?: (GetPipesByOrganization_organization_pipes | null) | null;
   selectPipe: (_: string) => void;
 };
 
-export const PipesList = ({ item, selectPipe }: CardsProps) => {
+export const PipesList = ({ item, selectPipe }: PipesProps) => {
   return (
     <S.Wrapper
       color={item!.color!}

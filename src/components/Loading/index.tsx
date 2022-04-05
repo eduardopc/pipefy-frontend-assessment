@@ -3,7 +3,7 @@ import React from "react";
 import * as S from "./styles";
 
 type TLoadingProps = {
-  withTitle: boolean;
+  withTitle?: boolean;
 };
 
 export const Loading = ({ withTitle }: TLoadingProps) => {
