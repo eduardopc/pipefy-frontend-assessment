@@ -1,46 +1,46 @@
-import { useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useState } from 'react'
+import { useQuery } from '@apollo/client'
 
-import { GET_PIPES_BY_ORGANIZATION } from "../graphql";
+import { GET_PIPES_BY_ORGANIZATION } from '../graphql'
 import {
   GetPipesByOrganization,
   GetPipesByOrganizationVariables,
-  GetPipesByOrganization_organization_pipes,
-} from "../__generated__/GetPipesByOrganization";
+  GetPipesByOrganization_organization_pipes
+} from '../__generated__/GetPipesByOrganization'
 
 export interface IQueryPipes {
-  organizationId: string;
+  organizationId: string
 }
 
 const usePipes = ({ organizationId }: IQueryPipes) => {
   const [pipes, setPipes] = useState<
     (GetPipesByOrganization_organization_pipes | null)[] | null
-  >();
+  >()
 
   const { error, loading } = useQuery<
     GetPipesByOrganization,
     GetPipesByOrganizationVariables
   >(GET_PIPES_BY_ORGANIZATION, {
     variables: {
-      id: organizationId,
+      id: organizationId
     },
-    fetchPolicy: "network-only",
+    fetchPolicy: 'network-only',
     onCompleted: (data) => {
       const sortedPipes =
         data.organization?.pipes &&
         data.organization.pipes!.sort((pipeA, pipeB) =>
           pipeA!.name.trim().localeCompare(pipeB!.name.trim())
-        );
+        )
 
-      setPipes(sortedPipes);
-    },
-  });
+      setPipes(sortedPipes)
+    }
+  })
 
   return {
     error,
     data: pipes,
-    loading,
-  };
-};
+    loading
+  }
+}
 
-export default usePipes;
+export default usePipes

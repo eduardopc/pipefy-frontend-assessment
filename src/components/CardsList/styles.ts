@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
@@ -13,7 +13,7 @@ export const Wrapper = styled.article`
     opacity: 0.8;
     border-radius: ${theme.border.radius};
   `}
-`;
+`
 
 export const Title = styled.h2`
   ${({ theme }) => css`
@@ -27,7 +27,7 @@ export const Title = styled.h2`
     margin-bottom: ${theme.spacings.xxsmall};
     padding: 0 ${theme.spacings.xsmall};
   `}
-`;
+`
 
 export const Id = styled.p`
   ${({ theme }) => css`
@@ -38,7 +38,7 @@ export const Id = styled.p`
     color: ${theme.colors.black};
     padding: ${theme.spacings.xxsmall} 0;
   `}
-`;
+`
 
 export const Link = styled.a`
   ${({ theme }) => css`
@@ -46,4 +46,4 @@ export const Link = styled.a`
     font-weight: ${theme.font.bold};
     color: ${theme.colors.black};
   `}
-`;
+`

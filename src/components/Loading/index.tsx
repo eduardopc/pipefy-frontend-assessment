@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
-import * as S from "./styles";
+import * as S from './styles'
 
 type TLoadingProps = {
-  withTitle?: boolean;
-};
+  withTitle?: boolean
+}
 
 export const Loading = ({ withTitle }: TLoadingProps) => {
   return (
@@ -14,5 +14,5 @@ export const Loading = ({ withTitle }: TLoadingProps) => {
       <S.Dot delay=".1s" />
       <S.Dot delay=".2s" />
     </S.DotWrapper>
-  );
-};
+  )
+}

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import Base from "../Base";
-import { Container } from "../Container";
-import { Pipes } from "../Pipes";
+import Base from '../Base'
+import { Container } from '../Container'
+import { Pipes } from '../Pipes'
 
 export const Home = () => {
   return (
@@ -11,5 +11,5 @@ export const Home = () => {
         <Pipes />
       </Container>
     </Base>
-  );
-};
+  )
+}

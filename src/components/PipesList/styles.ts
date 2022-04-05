@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 type WrapperProps = {
-  color?: string;
-};
+  color?: string
+}
 
 export const Wrapper = styled.article<WrapperProps>`
   ${({ theme, color }) => css`
@@ -16,7 +16,7 @@ export const Wrapper = styled.article<WrapperProps>`
     opacity: 0.8;
     border-radius: ${theme.border.radius};
   `}
-`;
+`
 
 export const HeaderContent = styled.div`
   ${({ theme }) => css`
@@ -26,7 +26,7 @@ export const HeaderContent = styled.div`
     position: relative;
     margin: ${theme.spacings.xsmall};
   `}
-`;
+`
 
 export const StarButton = styled.div`
   ${({ theme }) => css`
@@ -36,7 +36,7 @@ export const StarButton = styled.div`
       width: 2rem;
     }
   `}
-`;
+`
 
 export const LockButton = styled.div`
   ${({ theme }) => css`
@@ -46,19 +46,19 @@ export const LockButton = styled.div`
       width: 2rem;
     }
   `}
-`;
+`
 
 type InfoProps = {
-  hasCards?: boolean;
-};
+  hasCards?: boolean
+}
 
 export const Info = styled.div<InfoProps>`
   ${({ hasCards }) => css`
     align-self: center;
     text-align: center;
-    cursor: ${hasCards ? "pointer" : "not-allowed"};
+    cursor: ${hasCards ? 'pointer' : 'not-allowed'};
   `}
-`;
+`
 
 export const Name = styled.h3`
   ${({ theme }) => css`
@@ -72,7 +72,7 @@ export const Name = styled.h3`
     margin-bottom: ${theme.spacings.xxsmall};
     padding: 0 ${theme.spacings.xsmall};
   `}
-`;
+`
 
 export const Count = styled.h4`
   ${({ theme }) => css`
@@ -81,4 +81,4 @@ export const Count = styled.h4`
     color: ${theme.colors.black};
     margin-bottom: ${theme.spacings.xxsmall};
   `}
-`;
+`

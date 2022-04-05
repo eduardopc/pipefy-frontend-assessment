@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Container = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const Content = styled.section`
   ${({ theme }) => css`
@@ -17,4 +17,4 @@ export const Content = styled.section`
     flex-direction: column;
     align-items: flex-start;
   `}
-`;
+`

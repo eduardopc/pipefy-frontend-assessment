@@ -2,56 +2,57 @@ import React, {
   PropsWithChildren,
   useCallback,
   useEffect,
-  useState,
-} from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import usePipes from "./hooks/usePipes";
+  useState
+} from 'react'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-import { PipesList } from "../PipesList";
+import usePipes from './hooks/usePipes'
 
-import * as S from "./styles";
-import { CardsModal } from "../CardsModal";
+import { PipesList } from '../PipesList'
+import { CardsModal } from '../CardsModal'
+
+import * as S from './styles'
 
 export interface IPipe {
-  cards_count: number;
-  color: string;
-  icon: string;
-  id: number;
-  name: string;
+  cards_count: number
+  color: string
+  icon: string
+  id: number
+  name: string
 }
 
 export const Pipes = () => {
-  const [pipeId, setPipeId] = useState<string | null>(null);
-  const [openModal, setOpenModal] = useState(false);
+  const [pipeId, setPipeId] = useState<string | null>(null)
+  const [openModal, setOpenModal] = useState(false)
 
   const { data, error, loading } = usePipes({
-    organizationId: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID || "",
-  });
+    organizationId: process.env.REACT_APP_PIPEFY_ORGANIZATION_ID || ''
+  })
 
   useEffect(() => {
     if (openModal) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden'
     }
     return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [openModal]);
+      document.body.style.overflow = 'unset'
+    }
+  }, [openModal])
 
   const handleClickPipe = useCallback(
     (pipe: string) => {
-      setPipeId(pipe);
-      setOpenModal(true);
+      setPipeId(pipe)
+      setOpenModal(true)
     },
     [setPipeId, setOpenModal]
-  );
+  )
 
   const handleCloseModal = useCallback(() => {
-    setOpenModal(false);
-  }, [setOpenModal]);
+    setOpenModal(false)
+  }, [setOpenModal])
 
   function InlineWrapperWithMargin({ children }: PropsWithChildren<unknown>) {
-    return <span style={{ marginRight: "1rem" }}>{children}</span>;
+    return <span style={{ marginRight: '1rem' }}>{children}</span>
   }
 
   return (
@@ -72,7 +73,7 @@ export const Pipes = () => {
             width: 270,
             height: 185,
             borderRadius: 8,
-            marginTop: 20,
+            marginTop: 20
           }}
         />
       ) : (
@@ -92,5 +93,5 @@ export const Pipes = () => {
         <CardsModal closeModal={handleCloseModal} pipeId={pipeId} />
       )}
     </div>
-  );
-};
+  )
+}

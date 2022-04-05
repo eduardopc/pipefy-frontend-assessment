@@ -1,4 +1,4 @@
-import * as S from "./styles";
+import * as S from './styles'
 
 export const Header = () => {
   return (
@@ -6,12 +6,12 @@ export const Header = () => {
       <S.Content>
         <h1>Your Pipes</h1>
         <p>
-          Here are all your processes{" "}
+          Here are all your processes{' '}
           <a target="_blank" href="https://help.pipefy.com/" rel="noreferrer">
             learn more.
           </a>
         </p>
       </S.Content>
     </S.Container>
-  );
-};
+  )
+}

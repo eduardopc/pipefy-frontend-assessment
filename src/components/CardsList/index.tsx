@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-import * as S from "./styles";
-import { GetCardsByPipe_cards_edges } from "../CardsModal/__generated__/GetCardsByPipe";
+import * as S from './styles'
+import { GetCardsByPipe_cards_edges } from '../CardsModal/__generated__/GetCardsByPipe'
 
 export type CardsProps = {
-  cards?: (GetCardsByPipe_cards_edges | null) | null;
-};
+  cards?: (GetCardsByPipe_cards_edges | null) | null
+}
 
 export const CardsList = ({ cards }: CardsProps) => {
   return (
@@ -22,5 +22,5 @@ export const CardsList = ({ cards }: CardsProps) => {
         )}
       </article>
     </S.Wrapper>
-  );
-};
+  )
+}

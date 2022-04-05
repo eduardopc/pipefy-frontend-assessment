@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client'
 
 export const GET_CARDS_BY_PIPE = gql`
   query GetCardsByPipe($pipe_id: ID!, $first: Int, $after: String) {
@@ -16,4 +16,4 @@ export const GET_CARDS_BY_PIPE = gql`
       }
     }
   }
-`;
+`

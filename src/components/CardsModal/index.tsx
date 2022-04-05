@@ -1,20 +1,20 @@
-import React from "react";
-import { CardsList } from "../CardsList";
+import React from 'react'
+import { CardsList } from '../CardsList'
 
-import { Loading } from "../Loading";
-import useCards from "./hooks/useCards";
+import { Loading } from '../Loading'
+import useCards from './hooks/useCards'
 
-import * as S from "./styles";
+import * as S from './styles'
 
 type TCardsModal = {
-  closeModal: () => void;
-  pipeId: string | null;
-};
+  closeModal: () => void
+  pipeId: string | null
+}
 
 export const CardsModal = ({ closeModal, pipeId }: TCardsModal) => {
   const { data, error, loading, fetchMore } = useCards({
-    pipeId: pipeId || "",
-  });
+    pipeId: pipeId || ''
+  })
 
   return (
     <>
@@ -43,19 +43,19 @@ export const CardsModal = ({ closeModal, pipeId }: TCardsModal) => {
                 data?.cards?.pageInfo.hasNextPage
                   ? fetchMore({
                       variables: {
-                        after: data?.cards?.pageInfo.endCursor,
-                      },
+                        after: data?.cards?.pageInfo.endCursor
+                      }
                     })
                   : null
               }
             >
               {data?.cards?.pageInfo.hasNextPage
-                ? "Load more cards"
-                : "No more cards"}
+                ? 'Load more cards'
+                : 'No more cards'}
             </S.FooterButton>
           </S.Footer>
         </S.ModalContainer>
       </S.ModalBg>
     </>
-  );
-};
+  )
+}

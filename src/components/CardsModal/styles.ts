@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const ModalBg = styled.div`
   width: 100vw;
@@ -10,7 +10,7 @@ export const ModalBg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const ModalContainer = styled.div`
   ${({ theme }) => css`
@@ -24,7 +24,7 @@ export const ModalContainer = styled.div`
     flex-direction: column;
     padding: ${theme.spacings.xsmall} ${theme.spacings.small};
   `}
-`;
+`
 
 export const CloseButtonContainer = styled.div`
   ${({ theme }) => css`
@@ -32,14 +32,14 @@ export const CloseButtonContainer = styled.div`
     justify-content: flex-end;
     margin-bottom: ${theme.spacings.xxsmall};
   `}
-`;
+`
 
 export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   font-size: 25px;
   cursor: pointer;
-`;
+`
 
 export const Body = styled.div`
   flex: 100%;
@@ -48,13 +48,13 @@ export const Body = styled.div`
   align-items: center;
   font-size: 1.7rem;
   text-align: center;
-`;
+`
 
 export const Grid = styled.div`
   display: flex;
   flex-flow: wrap;
   gap: 10px;
-`;
+`
 
 export const Footer = styled.div`
   ${({ theme }) => css`
@@ -63,11 +63,11 @@ export const Footer = styled.div`
     justify-content: center;
     margin-top: ${theme.spacings.xxsmall};
   `}
-`;
+`
 
 type TFooterButton = {
-  buttonEnabled: boolean | undefined;
-};
+  buttonEnabled: boolean | undefined
+}
 
 export const FooterButton = styled.button<TFooterButton>`
   ${({ theme, buttonEnabled }) => css`
@@ -81,6 +81,6 @@ export const FooterButton = styled.button<TFooterButton>`
     color: ${theme.colors.white};
     border-radius: ${theme.border.radius};
     font-size: ${theme.font.sizes.medium};
-    cursor: ${buttonEnabled ? "pointer" : "not-allowed"};
+    cursor: ${buttonEnabled ? 'pointer' : 'not-allowed'};
   `}
-`;
+`
