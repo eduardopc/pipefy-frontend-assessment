@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 type WrapperProps = {
-  color?: string
+  color?: string | null
 }
 
 export const Wrapper = styled.article<WrapperProps>`

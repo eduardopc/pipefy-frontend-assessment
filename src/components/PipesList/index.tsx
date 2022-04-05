@@ -4,6 +4,7 @@ import { Star as StarSolid } from '@styled-icons/boxicons-solid'
 import { GetPipesByOrganization_organization_pipes } from '../Pipes/__generated__/GetPipesByOrganization'
 
 import * as S from './styles'
+import theme from '../../styles/theme'
 
 export type PipesProps = {
   item?: (GetPipesByOrganization_organization_pipes | null) | null
@@ -13,7 +14,7 @@ export type PipesProps = {
 export const PipesList = ({ item, selectPipe }: PipesProps) => {
   return (
     <S.Wrapper
-      color={item!.color!}
+      color={item?.color ? item?.color : theme.colors.gray}
       onClick={() => (item?.cards_count ? selectPipe(item?.id) : null)}
     >
       <S.HeaderContent>
