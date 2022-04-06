@@ -14,8 +14,10 @@ describe('<Loading />', () => {
   })
 
   it('should render loading component with title', () => {
-    renderWithTheme(<Loading withTitle/>)
+    renderWithTheme(<Loading withTitle />)
 
-    expect(screen.getByRole('heading', { name: /carregando/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /carregando/i })
+    ).toBeInTheDocument()
   })
 })
