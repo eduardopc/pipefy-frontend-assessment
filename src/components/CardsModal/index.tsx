@@ -19,7 +19,7 @@ export const CardsModal = ({ closeModal, pipeId }: TCardsModal) => {
   return (
     <>
       <S.ModalBg>
-        <S.ModalContainer>
+        <S.ModalContainer className="modal-cards">
           <S.CloseButtonContainer>
             <S.CloseButton onClick={closeModal}>x</S.CloseButton>
           </S.CloseButtonContainer>
